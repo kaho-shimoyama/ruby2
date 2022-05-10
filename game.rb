@@ -1,3 +1,5 @@
+
+  
   def jyanken_game
       puts "じゃんけん..."
       puts "0(グー),1(チョキ),2(パー),3(戦わない)"
@@ -24,15 +26,17 @@
       puts "相手：#{jyankens[com_hand]}を出しました"
       puts "----------------"
       
+      $win = "win"
+      
       if my_hand == com_hand
         puts "あいこで"
         jyanken_game
-      elsif (my_hand = 0 && com_hand = 1) || (my_hand = 1 && com_hand = 2) || (my_hand = 2 && com_hand = 0)
+      elsif (my_hand = 0 && com_hand = 1) || (my_hand = 1 && com_hand = 0) || (my_hand = 2 && com_hand = 1)
+        $win = "win"
         attimuite_hoi 
-        return "win"
       elsif (my_hand = 0 && com_hand = 2) || (my_hand = 1 && com_hand = 0) || (my_hand = 2 && com_hand = 1)
+        $win = "lose"
         attimuite_hoi 
-        return "lose"
       end
       
   end  
@@ -50,11 +54,12 @@
       
     puts "あなた：#{directions[my_direction]}を向きました"
     puts "相手：#{directions[com_direction]}を向きました"
-       
-    if (my_direction == com_direction) && (jyanken_game == "win")
-        puts "勝ち"
-    elsif (my_direction == com_direction) && (jyanken_game == "lose")
-        puts "負け"
+    puts "----------------"
+    
+    if (my_direction == com_direction) && ($win == "win")
+        puts "あなたの勝ちです"
+    elsif (my_direction == com_direction) && ($win == "lose")
+        puts "あなたの負けです"
     else 
         jyanken_game
     end
