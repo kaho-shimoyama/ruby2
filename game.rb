@@ -31,7 +31,7 @@
       if my_hand == com_hand
         puts "あいこで"
         jyanken_game
-      elsif (my_hand = 0 && com_hand = 1) || (my_hand = 1 && com_hand = 0) || (my_hand = 2 && com_hand = 1)
+      elsif (my_hand = 0 && com_hand = 1) || (my_hand = 1 && com_hand = 2) || (my_hand = 2 && com_hand = 0)
         $win = "win"
         attimuite_hoi 
       elsif (my_hand = 0 && com_hand = 2) || (my_hand = 1 && com_hand = 0) || (my_hand = 2 && com_hand = 1)
